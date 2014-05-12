@@ -93,9 +93,9 @@ local smooth_trans_size = config.smooth_trans_size
 
 local nosmooth_rarity = 1-rarity/50
 local perlin_scale = size*100/rarity
-local smooth_rarity_full = nosmooth_rarity+smooth_trans_size*2/perlin_scale
-local smooth_rarity_ran = nosmooth_rarity-smooth_trans_size/perlin_scale
-local smooth_rarity_dif = (smooth_rarity_full-smooth_rarity_ran)*100-1
+local smooth_rarity_max = nosmooth_rarity+smooth_trans_size*2/perlin_scale
+local smooth_rarity_min = nosmooth_rarity-smooth_trans_size/perlin_scale
+local smooth_rarity_dif = smooth_rarity_max-smooth_rarity_min
 
 minetest.register_on_generated(function(minp, maxp, seed)
 
@@ -164,15 +164,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			--smooth mapgen
 			if config.always_generate then
 				in_biome = true
-			elseif smooth
-			and (
-				test > smooth_rarity_full
+			elseif smooth then
+				if test >= smooth_rarity_max
 				or (
-					test > smooth_rarity_ran
-					and pr:next(0,smooth_rarity_dif) > (smooth_rarity_full - test) * 100
-				)
-			) then
-				in_biome = true
+					test > smooth_rarity_min
+					and pr:next(1, 1000) <= ((test-smooth_rarity_min)/smooth_rarity_dif)*1000
+				) then
+					in_biome = true
+				end
 			elseif (not smooth)
 			and test > nosmooth_rarity then
 				in_biome = true

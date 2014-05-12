@@ -23,18 +23,18 @@ grass_add_biome({
 		always_generate = false,
 		smooth = true,
 		plants_enabled = false,
-		mapgen_rarity = 50,
+		mapgen_rarity = 10,
 		mapgen_size = 30,
-		smooth_trans_size = 10,
+		smooth_trans_size = 20,
 		seeddif = 21
 	},
 	generate_ground = function(pos, area, data)
 		local p_pos = area:index(pos.x, pos.y+1, pos.z)
 		if data[p_pos] == grass_cs["air"] then
-			data[area:indexp(pos)] = grass_cs["default:stone"]
-			if pr:next(1,100) == 1 then
+			--data[area:indexp(pos)] = grass_cs["default:stone"]
+			if pr:next(1,250) == 1 then
 				data[p_pos] = grass_cs["default:junglegrass"]
-			elseif pr:next(1,25) == 1 then
+			elseif pr:next(1,100) == 1 then
 				data[p_pos] = grass_cs["default:dry_shrub"]
 			elseif pr:next(1,4) == 1 then
 				data[p_pos] = grass_cs["default:grass_"..pr:next(1,5)]
