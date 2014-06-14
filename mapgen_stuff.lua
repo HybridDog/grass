@@ -1,5 +1,5 @@
 local give_info = true
-local inform_all = true
+local inform_all = false
 local max_spam = 2
 
 local inform
