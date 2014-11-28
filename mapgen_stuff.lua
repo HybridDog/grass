@@ -23,7 +23,9 @@ else
 	end
 end
 
-grass_cs = grass_cs or {}
+if not rawget(_G, "grass_cs") then
+	grass_cs = {}
+end
 function grass_add_cs(names)
 	for _,name in ipairs(names) do
 		if not grass_cs[name] then
