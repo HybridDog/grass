@@ -82,6 +82,7 @@ param = {
 }
 ]]
 
+pr = nil
 function grass_add_biome(param)
 
 local config = param.settings
