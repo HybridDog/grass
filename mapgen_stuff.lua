@@ -1,5 +1,5 @@
 local give_info = true
-local inform_all = false
+local inform_all = minetest.is_singleplayer()
 local max_spam = 2
 
 local inform
@@ -12,7 +12,7 @@ if give_info then
 			else
 				info = "[grass] "..msg
 			end
-			print(info)
+			minetest.log("info", info)
 			if inform_all then
 				minetest.chat_send_all(info)
 			end

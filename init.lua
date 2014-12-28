@@ -45,4 +45,4 @@ grass_add_biome({
 	structures = false,
 })
 
-print(string.format("[grass] loaded after ca. %.2fs", os.clock() - load_time_start))
+minetest.log("info", string.format("[grass] loaded after ca. %.2fs", os.clock() - load_time_start))
