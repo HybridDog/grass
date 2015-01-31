@@ -1,3 +1,2 @@
 TODO:
-— add flowers
-— add msg spam settings
+— ??add msg spam settings
