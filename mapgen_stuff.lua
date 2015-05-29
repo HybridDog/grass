@@ -144,7 +144,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	if unwanted_nodes then
 		for p_pos in area:iterp(minp, maxp) do
 			local d_p_pos = data[p_pos]
-			for _,nam in ipairs(unwanted_nodes) do			
+			for _,nam in ipairs(unwanted_nodes) do
 				if d_p_pos == nam then
 					data[p_pos] = c.air
 					break
@@ -186,7 +186,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					for b = minp.y,maxp.y,1 do	--remove usual stuff
 						local p_pos = area:index(x, b, z)
 						local d_p_pos = data[p_pos]
-						for _,nam in ipairs(usual_stuff) do			
+						for _,nam in ipairs(usual_stuff) do
 							if d_p_pos == nam then
 								data[p_pos] = c.air
 								break
