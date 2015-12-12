@@ -1,5 +1,5 @@
 local give_info = true
-local inform_all = minetest.is_singleplayer()
+local inform_all = false--minetest.is_singleplayer()
 local max_spam = 2
 
 local inform
