@@ -1,12 +1,8 @@
-[Mod] grass [grass]
+For a description of this Minetest mod, see
+https://forum.minetest.net/viewtopic.php?f=9&t=10275.
 
-**Depends:** see [depends.txt](https://raw.githubusercontent.com/HybridDog/grass/master/depends.txt)  
-**License:** see [LICENSE.txt](https://raw.githubusercontent.com/HybridDog/grass/master/LICENSE.txt)  
-**Download:** [zip](https://github.com/HybridDog/grass/archive/master.zip), [tar.gz](https://github.com/HybridDog/grass/archive/master.tar.gz)  
-
-![I'm a screenshot!](http://i.imgur.com/pVLZbYW.jpg)
-
-If you got ideas or found bugs, please tell them to me.
-
-TODO:  
-— ??add msg spam settings
+TODO:
+* Fix settings: perlin noise has binomial/normal distribution
+* Try random x,z coordinates for positions; this is binomially distributed,
+	so it could give good results.
+* ??add msg spam settings
